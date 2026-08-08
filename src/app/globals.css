@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+:root {
+  --color-background: #0d1117;
+  --color-surface: #161b22;
+  --color-surface-2: #1c2128;
+  --color-accent: #58a6ff;
+  --color-accent-green: #3fb950;
+  --color-accent-orange: #d29922;
+  --color-accent-purple: #bc8cff;
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #484f58;
+  --color-border: #21262d;
+  --color-border-hover: #30363d;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-inter), sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle grid pattern — the signature element */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(88, 166, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 166, 255, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main, header, footer { position: relative; z-index: 1; }
+
+::selection {
+  background: rgba(88, 166, 255, 0.2);
+  color: var(--color-text-primary);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-background); }
+::-webkit-scrollbar-thumb { background: var(--color-border-hover); border-radius: 3px; }
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.section-pad { padding-top: 5rem; padding-bottom: 5rem; }
+@media (max-width: 768px) { .section-pad { padding-top: 3.5rem; padding-bottom: 3.5rem; } }
+
+/* Syntax highlight colours for inline code spans */
+.token-blue    { color: #58a6ff; }
+.token-green   { color: #3fb950; }
+.token-purple  { color: #bc8cff; }
+.token-orange  { color: #d29922; }
+.token-red     { color: #f85149; }
+.token-muted   { color: #8b949e; }
